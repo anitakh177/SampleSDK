@@ -11,6 +11,7 @@
 		8B2B6E332BA075EF00EAB296 /* SampleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2B6E282BA075EE00EAB296 /* SampleSDK.framework */; };
 		8B2B6E382BA075EF00EAB296 /* SampleSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B6E372BA075EF00EAB296 /* SampleSDKTests.swift */; };
 		8B2B6E392BA075EF00EAB296 /* SampleSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B2B6E2B2BA075EE00EAB296 /* SampleSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B2B6E432BA0762D00EAB296 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2B6E422BA0762D00EAB296 /* Main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		8B2B6E2C2BA075EE00EAB296 /* SampleSDK.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SampleSDK.docc; sourceTree = "<group>"; };
 		8B2B6E322BA075EF00EAB296 /* SampleSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B2B6E372BA075EF00EAB296 /* SampleSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSDKTests.swift; sourceTree = "<group>"; };
+		8B2B6E422BA0762D00EAB296 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				8B2B6E2B2BA075EE00EAB296 /* SampleSDK.h */,
 				8B2B6E2C2BA075EE00EAB296 /* SampleSDK.docc */,
+				8B2B6E422BA0762D00EAB296 /* Main.swift */,
 			);
 			path = SampleSDK;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2B6E432BA0762D00EAB296 /* Main.swift in Sources */,
 				8B2B6E2D2BA075EE00EAB296 /* SampleSDK.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +372,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MTSA.SampleSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -401,6 +409,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MTSA.SampleSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -411,6 +423,7 @@
 		8B2B6E402BA075EF00EAB296 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5YLUAUJ2B9;
@@ -427,6 +440,7 @@
 		8B2B6E412BA075EF00EAB296 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5YLUAUJ2B9;
