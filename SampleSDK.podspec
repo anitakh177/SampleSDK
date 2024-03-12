@@ -40,7 +40,7 @@ SDK is to test different versions of analytics sdk
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = "All rights reserved"
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -66,14 +66,7 @@ SDK is to test different versions of analytics sdk
   #
 
   # spec.platform     = :ios
-  # spec.platform     = :ios, "14.0"
-
-  #  When using multiple platforms
-  # spec.ios.deployment_target = "5.0"
-  # spec.osx.deployment_target = "10.7"
-  # spec.watchos.deployment_target = "2.0"
-  # spec.tvos.deployment_target = "9.0"
-  # spec.visionos.deployment_target = "1.0"
+  # spec.platform     = :ios, "12.0"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -82,7 +75,7 @@ SDK is to test different versions of analytics sdk
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source      = { :git => "https://github.com/anitakh177/SampleSDK.git", :tag => "{0.0.1}" }
+  spec.source      = { :git => "https://github.com/anitakh177/SampleSDK.git" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -119,7 +112,7 @@ SDK is to test different versions of analytics sdk
   #  the lib prefix of their name.
   #
 
-  # spec.framework  = "SomeFramework"
+   spec.framework  = "MTSAnalytic"
   # spec.frameworks = "SomeFramework", "AnotherFramework"
 
   # spec.library   = "iconv"
@@ -135,7 +128,10 @@ SDK is to test different versions of analytics sdk
   # spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-   spec.dependency "MTSAnalytics", "~> 1.3.0"
+  # spec.dependency "MTSAnalytics", "~> 1.3.0"
+
+spec.dependency "PLCrashReporter", ">= 1.11.0"
+
 
 end
 

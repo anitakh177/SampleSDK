@@ -1,0 +1,11 @@
+framework module MTSAnalytics {
+  umbrella header "MTSAnalytics.h"
+
+  export *
+  module * { export * }
+}
+
+module MTSAnalytics.Swift {
+  header "MTSAnalytics-Swift.h"
+  requires objc
+}

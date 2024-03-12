@@ -1,0 +1,439 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MTSAnalytics
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AdSupport
+import AppTrackingTransparency
+import CommonCrypto
+import CoreLocation
+import CoreTelephony
+import CryptoKit
+import Dispatch
+import Foundation
+@_exported import MTSAnalytics
+import Network
+import SQLite3
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+@_hasMissingDesignatedInitializers final public class MAAnalytics {
+  public static func getInstance(configuration: MTSAnalytics.MAAnalyticsConfiguration) -> MTSAnalytics.MAAnalyticsProvider
+  @objc deinit
+}
+extension MTSAnalytics.EAction {
+  public enum Target : Swift.Equatable, Swift.Codable {
+    case button, switcher, element, card, block, form, filter, menu, tab, link, banner, popup, app, social, region, offer, video, doc, error, empty
+    case custom(value: Swift.String)
+    public static func == (a: MTSAnalytics.EAction.Target, b: MTSAnalytics.EAction.Target) -> Swift.Bool
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+}
+public protocol MAEventRepresentable {
+  var eventType: MTSAnalytics.MAEventType { get }
+  var eventName: Swift.String { get set }
+  var screenName: Swift.String? { get set }
+  var parameters: [Swift.String : Any?]? { get set }
+}
+public enum ButtonLocation {
+  case up, mid, down, header, footer, popup, screen, sidebar, curtain, left, right, tabBar, plusMenu, topBar
+  case custom(value: Swift.String)
+}
+public struct MACustomEvent : MTSAnalytics.MAEventRepresentable {
+  public var eventType: MTSAnalytics.MAEventType
+  public var eventName: Swift.String
+  public var screenName: Swift.String?
+  public var parameters: [Swift.String : Any?]?
+  public init(eventType: MTSAnalytics.MAEventType, eventName: Swift.String, screenName: Swift.String? = nil, parameters: [Swift.String : Any?]? = nil)
+}
+public struct EAction {
+  public init(target: MTSAnalytics.EAction.Target = .empty, action: MTSAnalytics.EAction.Action = .empty)
+}
+public enum MAEventDefaults {
+}
+extension MTSAnalytics.EAction {
+  public enum Action : Swift.Equatable, Swift.Codable {
+    case click
+    case tap
+    case open
+    case `switch`
+    case add
+    case remove
+    case status
+    case like
+    case send
+    case scroll
+    case show
+    case hide
+    case create
+    case apply
+    case change
+    case share
+    case confirmed
+    case rejected
+    case close
+    case swipe
+    case play
+    case pause
+    case empty
+    case custom(value: Swift.String)
+    public static func == (a: MTSAnalytics.EAction.Action, b: MTSAnalytics.EAction.Action) -> Swift.Bool
+    public func encode(to encoder: any Swift.Encoder) throws
+    public init(from decoder: any Swift.Decoder) throws
+  }
+}
+public enum ProductCategory {
+  case karta
+  case telefon
+  case empty
+  case custom(value: Swift.String)
+}
+public enum MultiAccountType : Swift.Codable, Swift.CaseIterable {
+  case parent
+  case child
+  public static func == (a: MTSAnalytics.MultiAccountType, b: MTSAnalytics.MultiAccountType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public typealias AllCases = [MTSAnalytics.MultiAccountType]
+  public static var allCases: [MTSAnalytics.MultiAccountType] {
+    get
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum EPPL {
+  case notSet
+  case empty
+  case custom(value: Swift.String)
+}
+public enum PaymentType {
+  case onDelivery
+  case online
+  case installmentPaymentOnline
+  case installmentPaymentOffice
+  case empty
+  case custom(value: Swift.String)
+}
+public enum LogLevel : Swift.Int {
+  case verbose
+  case debug
+  case warn
+  case error
+  case off
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum MAEcoSystemDefaults {
+}
+@_hasMissingDesignatedInitializers final public class MAAnalyticsHelper {
+  public static var mClientId: Swift.String {
+    get
+  }
+  @objc deinit
+}
+public enum NetworkTraffic : Swift.String, Swift.Codable, Swift.CaseIterable {
+  case off
+  case on
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [MTSAnalytics.NetworkTraffic]
+  public typealias RawValue = Swift.String
+  public static var allCases: [MTSAnalytics.NetworkTraffic] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+final public class MAAnalyticsConfiguration {
+  final public var crashReportingEnabled: Swift.Bool {
+    get
+    set
+  }
+  final public var activeTimeout: Swift.Int? {
+    get
+    set
+  }
+  final public var backgroundTimeout: Swift.Int? {
+    get
+    set
+  }
+  final public var eventStorageLimit: Swift.Int? {
+    get
+    set
+  }
+  final public var networkTraffic: MTSAnalytics.NetworkTraffic? {
+    get
+    set
+  }
+  public init(flowId: Swift.String)
+  @objc deinit
+}
+public enum AppTheme {
+  case sysDark
+  case sysLight
+  case userDark
+  case userLight
+  case dark
+  case light
+  case custom(value: Swift.String)
+}
+public enum BatchSize : Swift.Int, Swift.Codable, Swift.CaseIterable {
+  case single
+  case basic
+  case large
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [MTSAnalytics.BatchSize]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [MTSAnalytics.BatchSize] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum IdleTimeout : Swift.Int, Swift.Codable, Swift.CaseIterable {
+  case small
+  case medium
+  case large
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [MTSAnalytics.IdleTimeout]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [MTSAnalytics.IdleTimeout] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct MAError : MTSAnalytics.MAErrorRepresantable {
+  public var errorName: Swift.String
+  public var stacktrace: Swift.String?
+  public var parameters: [Swift.String : Any?]?
+  public init(errorName: Swift.String, stacktrace: Swift.String? = nil, parameters: [Swift.String : Any?]? = nil)
+}
+precedencegroup ColumnAssignment {
+  associativity: left
+  assignment: true
+  lowerThan: AssignmentPrecedence
+}
+infix operator <- : ColumnAssignment
+@_hasMissingDesignatedInitializers final public class Logger {
+  public static let shared: MTSAnalytics.Logger
+  final public func setInterceptor(_ delegate: ((Swift.String, MTSAnalytics.LogLevel) -> Swift.Void)?)
+  @objc deinit
+}
+public enum CurrentTariff {
+  case null
+  case trial
+  case custom(value: Swift.String)
+}
+public struct MAScreen : MTSAnalytics.MAEventRepresentable {
+  public var eventType: MTSAnalytics.MAEventType {
+    get
+  }
+  public var eventName: Swift.String
+  public var screenName: Swift.String?
+  public var parameters: [Swift.String : Any?]?
+  public init(eventName: Swift.String, screenName: Swift.String? = nil, parameters: [Swift.String : Any?]? = nil)
+}
+public enum EPDT {
+  case delivery
+  case pickup
+  case empty
+  case custom(value: Swift.String)
+}
+public enum AuthType : Swift.Int, Swift.Codable, Swift.CaseIterable {
+  case notAuth
+  case auth
+  public init?(rawValue: Swift.Int)
+  public typealias AllCases = [MTSAnalytics.AuthType]
+  public typealias RawValue = Swift.Int
+  public static var allCases: [MTSAnalytics.AuthType] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct FingerprintTree {
+  public let info: MTSAnalytics.DeviceInfoItem
+  public let children: [MTSAnalytics.FingerprintTree]?
+  public var fingerprint: Swift.String {
+    get
+  }
+}
+public enum DeliveryType {
+  case delivery
+  case pickup
+  case custom(value: Swift.String)
+}
+public enum DeviceInfoValueType {
+  case category
+  case info(Swift.String)
+}
+public struct DeviceInfoItem {
+  public let label: Swift.String
+  public var value: MTSAnalytics.DeviceInfoValueType
+  public let children: [MTSAnalytics.DeviceInfoItem]?
+}
+public enum Eco {
+  case ums
+  case login
+  case payments
+  case custom(value: Swift.String)
+  case empty
+}
+public enum AccountType {
+  case mobile
+  case stv
+  case fix
+  case mgts
+  case others
+  case custom(value: Swift.String)
+}
+public struct MAEcoSystemEvent : MTSAnalytics.MAEventRepresentable {
+  public var eventType: MTSAnalytics.MAEventType
+  public var eventName: Swift.String
+  public var screenName: Swift.String?
+  public var parameters: [Swift.String : Any?]?
+  public var eventCategory: Swift.String
+  public var eventLabel: Swift.String
+  public var eventContent: Swift.String?
+  public var eventContext: Swift.String?
+  public var eventValue: Swift.Int?
+  public var interactionType: MTSAnalytics.InteractionType
+  public var touchPoint: MTSAnalytics.TouchPoint
+  public var buttonLocation: MTSAnalytics.ButtonLocation?
+  public var eventAction: MTSAnalytics.EAction
+  public var clientId: Swift.String
+  public var mClientId: Swift.String
+  public var sessionId: Swift.String
+  public var hitId: Swift.String
+  public var userId: Swift.String
+  public var grClientId: Swift.String?
+  public var grId: Swift.String?
+  public var advertID: Swift.String?
+  public var deviceID: Swift.String?
+  public var userAuth: MTSAnalytics.AuthType
+  public var projectName: Swift.String
+  public var filterName: Swift.String?
+  public var productName: Swift.String?
+  public var productId: Swift.String?
+  public var funnelName: Swift.String?
+  public var funnelStep: Swift.String?
+  public var formId: Swift.String?
+  public var formOrderId: Swift.String?
+  public var multiAccountType: MTSAnalytics.MultiAccountType?
+  public var accountType: MTSAnalytics.AccountType?
+  public var bannerName: Swift.String?
+  public var bannerId: Swift.String?
+  public var region: Swift.String
+  public var abName: Swift.String?
+  public var abVariant: Swift.String?
+  public var currentTariff: MTSAnalytics.CurrentTariff
+  public var paymentType: MTSAnalytics.PaymentType?
+  public var deliveryType: MTSAnalytics.DeliveryType?
+  public var eventPosition: Swift.String?
+  public var eventProductPromoLabel: MTSAnalytics.EPPL?
+  public var eventProductAvailability: MTSAnalytics.EPAvailability?
+  public var eventProductDeliveryTerms: MTSAnalytics.EPDT?
+  public var appTheme: MTSAnalytics.AppTheme
+  public var eco: MTSAnalytics.Eco?
+  public var profileType: Swift.String?
+  public var productCategory: MTSAnalytics.ProductCategory?
+  public var appsflyerID: Swift.String?
+  public init(eventType: MTSAnalytics.MAEventType, eventName: Swift.String, screenName: Swift.String? = nil, parameters: [Swift.String : Any?]? = nil, eventCategory: Swift.String = "", eventLabel: Swift.String = "", eventContent: Swift.String? = nil, eventContext: Swift.String? = nil, eventValue: Swift.Int? = nil, interactionType: MTSAnalytics.InteractionType = .nonInteractions, touchPoint: MTSAnalytics.TouchPoint = .app, buttonLocation: MTSAnalytics.ButtonLocation? = nil, eventAction: MTSAnalytics.EAction = EAction(), clientId: Swift.String = "", mClientId: Swift.String = "", sessionId: Swift.String, hitId: Swift.String, userId: Swift.String = "", grClientId: Swift.String? = nil, grId: Swift.String? = nil, advertID: Swift.String? = nil, deviceID: Swift.String? = nil, userAuth: MTSAnalytics.AuthType = .notAuth, projectName: Swift.String, filterName: Swift.String? = nil, productName: Swift.String? = nil, productId: Swift.String? = nil, funnelName: Swift.String? = nil, funnelStep: Swift.String? = nil, formId: Swift.String? = nil, formOrderId: Swift.String? = nil, multiAccountType: MTSAnalytics.MultiAccountType? = nil, accountType: MTSAnalytics.AccountType? = nil, bannerName: Swift.String? = nil, bannerId: Swift.String? = nil, region: Swift.String, abName: Swift.String? = nil, abVariant: Swift.String? = nil, currentTariff: MTSAnalytics.CurrentTariff = .null, paymentType: MTSAnalytics.PaymentType? = nil, deliveryType: MTSAnalytics.DeliveryType? = nil, eventPosition: Swift.String? = nil, eventProductPromoLabel: MTSAnalytics.EPPL? = nil, eventProductAvailability: MTSAnalytics.EPAvailability? = nil, eventProductDeliveryTerms: MTSAnalytics.EPDT? = nil, appTheme: MTSAnalytics.AppTheme = .light, eco: MTSAnalytics.Eco? = nil, profileType: Swift.String? = nil, productCategory: MTSAnalytics.ProductCategory? = nil, appsflyerID: Swift.String? = nil)
+}
+public enum MAEventType : Swift.Codable {
+  case event
+  case screenview
+  case custom(name: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum InteractionType : Swift.String, Swift.Codable, Swift.CaseIterable {
+  case nonInteractions
+  case interactions
+  case conversions
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [MTSAnalytics.InteractionType]
+  public typealias RawValue = Swift.String
+  public static var allCases: [MTSAnalytics.InteractionType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum EPAvailability {
+  case available
+  case notAvailable
+  case soon
+  case preOffer
+  case empty
+  case custom(value: Swift.String)
+}
+public enum TouchPoint : Swift.String, Swift.Codable, Swift.CaseIterable {
+  case app
+  case webView
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [MTSAnalytics.TouchPoint]
+  public typealias RawValue = Swift.String
+  public static var allCases: [MTSAnalytics.TouchPoint] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol MAErrorRepresantable {
+  var errorName: Swift.String { get set }
+  var stacktrace: Swift.String? { get set }
+  var parameters: [Swift.String : Any?]? { get set }
+}
+@_hasMissingDesignatedInitializers final public class MAAnalyticsProvider {
+  final public func track(event: any MTSAnalytics.MAEventRepresentable)
+  final public func track(eventName: Swift.String, parameters: [Swift.String : Any?]?)
+  final public func track(error: any MTSAnalytics.MAErrorRepresantable)
+  final public func update(with configuration: MTSAnalytics.MAAnalyticsConfiguration)
+  final public func setLocation(_ location: CoreLocation.CLLocation)
+  final public func sendAuthenticationEvent(ssoState: Swift.String, redirectUrl: Swift.String? = nil)
+  final public func webSessionQueryItem(url: Swift.String) -> Foundation.URLQueryItem?
+  final public var logLevel: MTSAnalytics.LogLevel {
+    get
+    set
+  }
+  final public func logInterceptor(_ delegate: @escaping (Swift.String, MTSAnalytics.LogLevel) -> Swift.Void)
+  @objc deinit
+}
+extension MTSAnalytics.MultiAccountType : Swift.Equatable {}
+extension MTSAnalytics.MultiAccountType : Swift.Hashable {}
+extension MTSAnalytics.LogLevel : Swift.Equatable {}
+extension MTSAnalytics.LogLevel : Swift.Hashable {}
+extension MTSAnalytics.LogLevel : Swift.RawRepresentable {}
+extension MTSAnalytics.NetworkTraffic : Swift.Equatable {}
+extension MTSAnalytics.NetworkTraffic : Swift.Hashable {}
+extension MTSAnalytics.NetworkTraffic : Swift.RawRepresentable {}
+extension MTSAnalytics.BatchSize : Swift.Equatable {}
+extension MTSAnalytics.BatchSize : Swift.Hashable {}
+extension MTSAnalytics.BatchSize : Swift.RawRepresentable {}
+extension MTSAnalytics.IdleTimeout : Swift.Equatable {}
+extension MTSAnalytics.IdleTimeout : Swift.Hashable {}
+extension MTSAnalytics.IdleTimeout : Swift.RawRepresentable {}
+extension MTSAnalytics.AuthType : Swift.Equatable {}
+extension MTSAnalytics.AuthType : Swift.Hashable {}
+extension MTSAnalytics.AuthType : Swift.RawRepresentable {}
+extension MTSAnalytics.InteractionType : Swift.Equatable {}
+extension MTSAnalytics.InteractionType : Swift.Hashable {}
+extension MTSAnalytics.InteractionType : Swift.RawRepresentable {}
+extension MTSAnalytics.TouchPoint : Swift.Equatable {}
+extension MTSAnalytics.TouchPoint : Swift.Hashable {}
+extension MTSAnalytics.TouchPoint : Swift.RawRepresentable {}

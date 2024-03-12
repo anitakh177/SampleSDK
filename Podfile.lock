@@ -1,0 +1,25 @@
+PODS:
+  - MTSAnalytics (1.3.0):
+    - PLCrashReporter (~> 1.11.0)
+    - SwiftProtobuf (~> 1.22.1)
+  - PLCrashReporter (1.11.1)
+  - SwiftProtobuf (1.22.1)
+
+DEPENDENCIES:
+  - MTSAnalytics
+
+SPEC REPOS:
+  https://gitlab.services.mts.ru/mts-analytics/ios/podspecs:
+    - MTSAnalytics
+  trunk:
+    - PLCrashReporter
+    - SwiftProtobuf
+
+SPEC CHECKSUMS:
+  MTSAnalytics: b42b6f0e2bafbf1421f14ffb8ee961471efcbb36
+  PLCrashReporter: 5d2d3967afe0efad61b3048d617e2199a5d1b787
+  SwiftProtobuf: 7773c4e96a99d7b8ab7cda0fc30a883732ff93b1
+
+PODFILE CHECKSUM: 39bd643922dd8d65a10912d9e455a8f1ec71f7e7
+
+COCOAPODS: 1.14.2
